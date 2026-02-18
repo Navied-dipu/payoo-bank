@@ -12,6 +12,16 @@ document.getElementById("add-btn").addEventListener("click", function () {
   if (pin == "1234") {
     alert("Add money sccessfuly");
     setBalace(newBalance);
+    const trangection = document.getElementById("trangection-div");
+    const div = document.createElement("div");
+    div.innerHTML = `
+    <div class="w-full rounded-xl p-4 flex justify-between items-center">
+          <img src="assets/opt-1.png" alt="" />
+          ${bank} Bank add ${amount} taka scuccefuly
+          <p>:</p>
+        </div>
+   `;
+    trangection.appendChild(div);
   } else {
     alert("Wrong pin");
   }
