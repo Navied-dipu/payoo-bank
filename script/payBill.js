@@ -1,12 +1,14 @@
-document.getElementById("widthdraw-btn").addEventListener("click", function () {
-  const agentNum = getValueFormInput("agent-number");
-  const cashOutAmount = getValueFormInput("cahsout-amount");
-  const pin = getValueFormInput("input-pin");
+document.getElementById("pay-btn").addEventListener("click", function () {
+  const toPay= getValueFormInput("to-pay");
+
+  const billerAccNum = getValueFormInput("billerAcc-number");
+  const payAmount = getValueFormInput("pay-amount");
+  const pin = getValueFormInput("pay-pin");
   //   const balanceElement = document.getElementById("balance");
   //   const balance = Number(balanceElement.innerText);
   const balance = getBalance();
-  const newBalance = balance - Number(cashOutAmount);
-  if (agentNum.length !== 11) {
+  const newBalance = balance - Number(payAmount);
+  if (billerAccNum.length !== 11) {
     alert("Invalied number");
   }
   if (newBalance < 0) {
@@ -24,7 +26,7 @@ document.getElementById("widthdraw-btn").addEventListener("click", function () {
     div.innerHTML = `
     <div class="w-full rounded-xl p-4 flex justify-between items-center">
           <img src="assets/opt-1.png" alt="" />
-          ${newBalance} cash out agent ${agentNum}
+          ${toPay} bill pay ${newBalance} taka  to ${billerAccNum}
           <p>:</p>
         </div>
    `;
